@@ -1,9 +1,53 @@
-body {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+ 
+ body {
   background-color: floralwhite;
-}
-
-img {
+  padding-bottom: 1rem;
+ }
+ 
+ img {
   width: 50%;
   display: block;
   margin: auto;
-}
+ }
+ 
+ .heading {
+  margin-left: 10rem;
+  padding: 1rem 0;
+ }
+ 
+ .heading a {
+  text-decoration: none;
+  color: white;
+ }
+ 
+ header {
+  background-color: sienna;
+ }
+ 
+ ul li a {
+  color: sienna;
+ }
+ 
+ ul li a:hover {
+  color: sienna;
+  font-weight: 700;
+ }
+ 
+ .goHomeBtn {
+  color: rgb(88, 88, 88);
+  border: 1px solid rgb(179, 179, 179);
+  padding: 10px 16px;
+  background-color: transparent;
+  border-radius: 5px;
+  text-decoration: none;
+ }
+ 
+ .goHomeBtn:hover {
+  color: rgb(88, 88, 88);
+  border: 1px solid rgb(112, 79, 9);
+ }
