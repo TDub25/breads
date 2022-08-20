@@ -20,22 +20,21 @@ function Edit ({bread, bakers}) {
             name="image"
             id="image"
             defaultValue={bread.image}
-            />
-            <label htmlFor="baker">Baker</label>
-            <select name="baker" id="baker" defaultValue={bread.baker}>
-              {bakers.map((baker) => {
-                return (
-                  <option value={baker.id} key={baker.id}>{baker.name}</option>
-                )
-              })}
-            </select>
+          />
+          <label htmlFor="baker">Baker</label>
+          <select name="baker" id="baker" defaultValue={bread.baker}>
+            {bakers.map((baker) => {
+              return(
+                <option value={baker.id} key={baker.id}>{baker.name}</option>
+              )
+            })}
+          </select>
           <label htmlFor="hasGluten">Has Gluten?</label>
           <input
             type="checkbox"
             name="hasGluten"
             id="hasGluten"
-            defaultChecked
-            defaultValue={bread.hasGluten}
+            defaultChecked={bread.hasGluten}
           />
           <br />
           <input type="submit"/>

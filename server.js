@@ -7,34 +7,31 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 const PORT = process.env.PORT
 const app = express()
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}, 
+  () => { console.log('connected to mongo: ', process.env.MONGO_URI) }
+)
 
 // MIDDLEWARE
-app.set('views', __dirname + '/views')
+app.use(methodOverride('_method'))
+app.use(express.urlencoded({extended: true}))
+app.use(express.static('public'))
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
-app.use(express.static('public'))
-app.use(express.urlencoded({extended: true}))
-app.use(methodOverride('_method'))
-
-//Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true},
-  () => { console.log('Connected to mongo: ', process.env.MONGO_URI) }
-)
 
 // ROUTES
 app.get('/', (req, res) => {
-    res.send('Welcome to an Awesome App about Breads')
-  })
-  
+  res.send('Welcome to an awesome App about Breads')
+})
+
 // Breads
 const breadsController = require('./controllers/breads_controller.js')
 app.use('/breads', breadsController)
 
-// Bakers
+// Bakers 
 const bakersController = require('./controllers/bakers_controller.js')
-app.use('/bakers', bakersController) 
+app.use('/bakers', bakersController)
 
-// 404 PAGE
+// 404 Page
 app.get('*', (req, res) => {
   res.send('404')
 })
