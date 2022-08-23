@@ -1,7 +1,7 @@
 // dependencies
 const mongoose = require('mongoose')
-const Bread = require('./bread')
 const { Schema } = mongoose
+const Bread = require('./bread')
 
 // schema
 const bakerSchema = new Schema({
